@@ -1,13 +1,13 @@
 <template>
     <div class="box">
-        <img src="@/resource/img/SideBarImg/AzusaNya.svg" />
+        <img src="@/resource/img/SideBarImg/AzusaNya.png"/>
         <div class="titleBox">
-            Tymain的互联网小屋
+            <div :style="{color: styles.testColor}">Tymian的互联网小屋</div>
         </div>
         <div class="selectBarBox">
             <ul v-infinite-scroll="load" class="infinite-list" style="overflow: auto">
                 <li v-for="i in count" :key="i" class="infinite-list-item">
-                    <el-button color="#ffc4c4" :dark="false" plain style="height: 100%;width: 100%;">
+                    <el-button :color="styles.mainColor" :dark="false" class="button" plain>
                         <div style="font-size: 18px;">
                             {{ i }} ：Test 
                         </div>
@@ -23,6 +23,7 @@
 
 <script lang="ts" setup>
     import {ref, computed, onMounted, onBeforeMount} from 'vue'
+    import styles from '@/styles/color.module.scss';
     // import { isDark } from '~/composables/dark'
     
     const bodyStyle = ref({
@@ -71,7 +72,7 @@ const countImgSrc = computed(() => {
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     .box {
         position: absolute;
         top: 55%;
@@ -79,7 +80,7 @@ const countImgSrc = computed(() => {
         right: 10%;
         bottom: 10%;
         border-radius: 25px;
-        background-color: #FFF;
+        background-color: rgba(shallowColor($mainColor, 10),0.8);
         justify-content: flex-start;
         z-index: 2;
     }
@@ -100,7 +101,7 @@ const countImgSrc = computed(() => {
         bottom: 10%;
         border-radius: 25px;
         text-align: center;
-        border: 5px solid #ffc4c4;
+        border: 5px solid $mainColor;
     }
 
     .infinite-list {
@@ -110,8 +111,8 @@ const countImgSrc = computed(() => {
         border-radius: 20px;
         list-style: none;
         scrollbar-width: none;
-        /* Firefox 隐藏滚动条 */
-        background-color: rgba(251, 196, 196, 0.5)
+        background-color: rgba($mainColor,0.5);
+        
     }
     
     .infinite-list .infinite-list-item {
@@ -119,11 +120,7 @@ const countImgSrc = computed(() => {
         align-items: center;
         justify-content: center;
         height: 50px;
-        border-radius: 15px;
-        /* background: var(--el-color-primary-light-9); */
-        margin: 10px;
-        color: var(--el-color-primary);
-        background-color: #fac0c0;
+        margin: 10px 20px;
     }
 
     .infinite-list .infinite-list-item+.list-item {
@@ -134,9 +131,14 @@ const countImgSrc = computed(() => {
         position: absolute;
         left: 81%;
         right: 1%;
-        /* top: 50px; */
         bottom: 10%;
         border-radius: 25px;
-        /* border: 5px solid #ffc4c4; */
+    }
+
+    .button{
+        height: 100%;
+        width: 100%;
+        border-radius: 15px;
+        border: 3px solid contrastiveColor($mainColor);
     }
 </style>

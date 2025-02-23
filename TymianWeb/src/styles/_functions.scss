@@ -1,0 +1,28 @@
+@use "sass:color"; // 必须显式导入颜色模块
+
+@function modifyHSL($color, $h: null, $s: null, $l: null) {
+    @return color.change($color, 
+      $hue: if($h != null, $h, color.channel($color, "hue", $space: hsl)),
+      $saturation: if($s != null, $s, color.channel($color, "saturation", $space: hsl)),
+      $lightness: if($l != null, $l, color.channel($color, "lightness", $space: hsl)),
+      $space: hsl
+    );
+  }
+
+// 变淡，提高Lightness
+@function shallowColor($color, $percent){
+    $lightness: color.channel($color, "lightness", $space:hsl);
+    @return color.change($color, $lightness: $lightness+$percent, $space: hsl);
+}
+
+// 亮度取反，提高对比度
+@function contrastiveColor($color){
+    $lightness: color.channel($color, "lightness", $space:hsl);
+    $num: 0;
+    @if($lightness >= 50){
+        $num: -50
+    }@else{
+        $num: 50
+    }
+    @return shallowColor($color, $num)
+}

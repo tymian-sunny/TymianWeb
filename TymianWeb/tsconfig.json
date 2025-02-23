@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "target": "es2017",
+        "typeRoots": [
+            "./node_modules/@types",
+            "./src/typings"
+        ],
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        },
+        "baseUrl": "."
+    },
+    "include": [
+        "src/typings/**/*.d.ts",
+        "src/**/*.ts",
+        "src/**/*.vue",
+        "src/**/*.tsx"
+    ]
+}

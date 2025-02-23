@@ -1,0 +1,21 @@
+@use "sass:color"; // 必须显式导入颜色模块
+
+// Color
+$mainColor: rgb(236, 172, 191);
+// $mainColor: hsl(155, 32%, 51%);
+// $mainColor: hsl(298, 48%, 73%);
+// $mainColor: hsl(155, 40%, 73%);
+// $secondaryColor: hsl(185, 100%, 63%);
+$testColor: #ffffff;
+
+
+// 分解 RGB 值
+$mainRed: color.channel($mainColor, "red", $space: rgb);
+$mainGreen: color.channel($mainColor, "green", $space: rgb);
+$mainBlue: color.channel($mainColor, "blue", $space: rgb);
+
+// 分解 HSL 值（色相 0-360、饱和度/亮度 0-100%）
+$mainHue: color.channel($mainColor, "hue", $space: hsl);
+$mainSaturation: color.channel($mainColor, "saturation", $space: hsl);
+$mainLightness: color.channel($mainColor, "lightness", $space: hsl);
+

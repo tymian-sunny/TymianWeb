@@ -5,19 +5,21 @@
     <Transition name="nested" v-on="drawer" :duration="1000" :style="{width: process+'%'}">
       <div class="navigation">
         <el-collapse-transition>
-          <div v-show="true" class="navigationBar">
+          <div v-show="drawer" class="navigationBar">
             <el-menu
+            menu-trigger="click"
+            close-on-click-outside="true"
             class="el-menu-demo" 
             mode="horizontal" 
-            background-color="#545c64" 
-            text-color="#fff"
-            active-text-color="#ffd04b" 
+            :background-color="styles.mainColor"
+            :text-color="styles.testColor"
+            :active-text-color="styles.contrastiveColor" 
             hide-timeout=300
             >
               <el-menu-item index="0" disabled>&nbsp;&nbsp;</el-menu-item>
               <el-menu-item index="1">Processing Center</el-menu-item>
               <el-sub-menu index="2">
-                <template #title>Workspace</template>
+                <template #title >Workspace</template>
                 <el-menu-item index="2-1">item one</el-menu-item>
                 <el-menu-item index="2-2">item two</el-menu-item>
                 <el-menu-item index="2-3">item three</el-menu-item>
@@ -37,7 +39,7 @@
       </div>
     </Transition>
 
-    <el-button type="primary" class="el-button1" @click="beClick">
+    <el-button type="primary" class="el-button1" @click="beClick" :color="styles.secondaryColor">
       
       <el-avatar :size="60">
         <img
@@ -52,8 +54,8 @@
 
 <script lang="ts" setup>
   import { ref, Transition } from 'vue'
-  // import {  } from './icons.vue'
   import icons from './icons/icons.vue'
+  import styles from '@/styles/color.module.scss';
   
   const errorHandler = () => true
   const drawer = ref(false)
@@ -80,8 +82,6 @@
 <style lang="scss">
 
   .box{
-    // padding-top: 100px;
-    // margin-top: 200px;
     position:relative;
     display: flex;
     justify-content: center;
@@ -92,9 +92,6 @@
     height: 50px;
     margin-top: 30px;
     border-radius: 35px;
-
-    background-color: rgb(171, 238, 255);
-
     transition: width 0.5s ease;
     z-index: 1;
   }
