@@ -41,70 +41,45 @@ C:.
 │      │  Test_1.vue
 │      │  
 │      ├─api
-│      │      bgColorgetter.js
-│      │      dump2JSON.py
-│      │      octree.ts
-│      │      shared.ts
+│      │      bgColorgetter.js # 图片主色获取
+│      │      dump2JSON.py	# 图片主色获取
+│      │      octree.ts	# 图片主色获取
+│      │      shared.ts	# 图片主色获取
 │      │      
-│      ├─assets
-│      │      base.css
-│      │      logo.svg
-│      │      main.css
+│      ├─assets	#vue项目默认
 │      │      
 │      ├─resource
 │      │  └─img
-│      │      ├─Avatar
-│      │      │      Avatar1.svg
-│      │      │      Avatar2.svg
+│      │      ├─Avatar	# 头像
 │      │      │      
-│      │      ├─Background
-│      │      │      Background1.jpg
-│      │      │      Background2.png
-│      │      │      Background3.png
-│      │      │      Background4.png
-│      │      │      Background5.jpg
-│      │      │      Background6.jpg
-│      │      │      Background7.png
-│      │      │      Background8.png
+│      │      ├─Background	# 背景图片
 │      │      │      
-│      │      ├─SideBarImg
-│      │      │      AzusaNya.png
-│      │      │      AzusaNya.svg
+│      │      ├─SideBarImg	# 边栏图片
 │      │      │      
-│      │      └─test
-│      │              1.jpg
-│      │              2.jpg
-│      │              3.jpg
-│      │              4.jpg
-│      │              imgData1.json
-│      │              imgData2.json
-│      │              imgData3.json
-│      │              imgData4.json
+│      │      └─test	# 测试octree.ts\shared.ts文件
 │      │              
 │      ├─styles
-│      │      color.module.scss
-│      │      _functions.scss
-│      │      _variables.scss
+│      │      color.module.scss	# 将变量开放到js中
+│      │      _functions.scss	# 定义方法，全局
+│      │      _variables.scss	# 定义变量，全局
 │      │      
 │      ├─typings
-│      │      scss.d.ts
+│      │      scss.d.ts	# 编译器无法找到@开头的路径爆红后新增，删除不影响系统运行
 │      │      
 │      └─views
-│          │  Home.vue
+│          │  Home.vue # 主页
 │          │  
-│          └─components
-│              │  background.vue
-│              │  navigationBar.vue
-│              │  test.vue
-│              │  window.vue
+│          └─components	# 构成要素
+│              │  
+│              │  background.vue	# 背景
+│              │  navigationBar.vue	# 菜单栏
+│              │  test.vue	# 测试octree.ts\shared.ts文件
+│              │  window.vue	# 窗口栏
 │              │  
 │              └─icons
-│                      icons.vue
+│                      icons.vue # Election-Plus
 │                      
 └─快照
-        2025-02-24 004050.png
-        20250223_pc.png
-        20250223_pe.jpg
         
 
 ```
