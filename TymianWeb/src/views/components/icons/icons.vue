@@ -1,6 +1,6 @@
 <!-- icons.vue -->
 <template>
-    <img src="@/resource/img/Avatar/Avatar.jpg" alt="AzusaNya">
+    <img src="../../../resource/img/Avatar/Avatar1.svg" alt="AzusaNya">
 </template>
 
 <script>

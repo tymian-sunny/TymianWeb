@@ -1,6 +1,6 @@
 <template>
-    <div class="box">
-        <img src="@/resource/img/SideBarImg/AzusaNya.png"/>
+    <div class="windowBox">
+        <img src="@/resource/img/SideBarImg/AzusaNya.png" style="height: 100%;position: absolute;"/>
         <div class="titleBox">
             <div :style="{color: styles.testColor}">Tymian的互联网小屋</div>
         </div>
@@ -48,7 +48,8 @@
         "kasuterura-4",
         "moebooru",
         "original-new",
-        "rule34"
+        "rule34",
+        // "gelbooru-h"
     ]
     const countImgType = ref<number | null>(null)
     onBeforeMount(()=>{
@@ -73,7 +74,7 @@ const countImgSrc = computed(() => {
 </script>
 
 <style scoped lang="scss">
-    .box {
+    .windowBox {
         position: absolute;
         top: 55%;
         left: 10%;

@@ -13,7 +13,7 @@
 <script setup>
 import { ref } from 'vue'
 // import colorGetter from '../../api/bgColorgetter.js'
-import * as colorGetter from '../../api/bgColorgetter.js'
+// import * as colorGetter from '../../test/bgColorgetter.js'
 
 
 const bgUrl = new URL('@/resource/img/Background/Background1.png', import.meta.url).href;
@@ -44,7 +44,7 @@ function getBgStyle(imgUrl){
     }
 }
 
-console.log(colorGetter.getMainColor(bgImages[3]));
+// console.log(colorGetter.getMainColor(bgImages[3]));
 </script>
 
 <style lang="scss">
