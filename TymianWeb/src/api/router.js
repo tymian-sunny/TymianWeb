@@ -20,6 +20,14 @@ const routes = [
     },
     name: 'Library',
     component: () => import("@/views/Document.vue"),
+  },
+  {
+    path: '/video',
+    meta: {
+      title: '视频-Tymian小屋'
+    },
+    name: 'video',
+    component: () => import("@/views/video.vue"),
   }
 ]
 

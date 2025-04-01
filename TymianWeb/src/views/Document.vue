@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-    import navigationBar from './components/navigationBar.vue';
-    import card from './components/card.vue';
-    import background from './components/background.vue';
+    import navigationBar from './components/Home/navigationBar.vue';
+    import card from './components/Document/card.vue';
+    import background from './components/Home/background.vue';
 </script>
