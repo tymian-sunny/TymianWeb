@@ -28,6 +28,30 @@ const routes = [
     },
     name: 'video',
     component: () => import("@/views/video.vue"),
+  },
+  {
+    path: '/videoPlayer',
+    meta: {
+      title: 'ecchi-Tymian小屋'
+    },
+    name: 'videoPlayer',
+    component: () => import("@/views/components/Video/videoPlayer.vue")
+  },
+  {
+    path: '/ecchiVideo',
+    meta: {
+      title: 'ecchiVideo-Tymian小屋'
+    },
+    name: 'ecchiVideo',
+    component: () => import("@/views/ecchiVideo.vue")
+  },
+  {
+    path: '/animeVideo',
+    meta: {
+      title: 'ecchiVideo-Tymian小屋'
+    },
+    name: 'animeVideo',
+    component: () => import("@/views/animeVideo.vue")
   }
 ]
 

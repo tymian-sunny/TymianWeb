@@ -12,6 +12,7 @@
     "@videojs-player/vue": "^1.0.0",
     "axios": "^1.7.9",
     "element-plus": "^2.9.4",
+    "pinia": "^3.0.1",
     "sass": "^1.85.0",
     "scss": "^0.2.4",
     "video.js": "^7.21.7",

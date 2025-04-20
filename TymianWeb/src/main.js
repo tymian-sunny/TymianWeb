@@ -5,12 +5,16 @@ import 'element-plus/dist/index.css'
 // import './styles/custom.scss'
 import App from './App.vue'
 import router from './api/router'
-import VUeVideoPlayer from '@videojs-player/vue'
+import VueVideoPlayer from '@videojs-player/vue'
 import 'video.js/dist/video-js.css'
+import { createPinia } from "pinia";
 
+
+const pinia = createPinia();
 const app = createApp(App)
 
-app.use(VUeVideoPlayer)
+app.use(pinia)
+app.use(VueVideoPlayer)
 app.use(ElementPlus)
 app.use(router)
 app.mount('#app')

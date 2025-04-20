@@ -1,58 +1,69 @@
-<!-- EpisodeList.vue -->
 <template>
-    <div class="sidebar">
-      <div
-        v-for="(episode, index) in episodes"
-        :key="index"
-        class="episode-button"
-        :class="{ active: index === currentEpisode }"
-        @click="selectEpisode(index)"
-      >
-        {{ episode }}
-      </div>
-    </div>
-  </template>
+  <div class="anime-selector">
+ <el-button-group >
+   <el-button
+     v-for="num in episodeCount"
+     :key="num"
+     :type="selectedEpisode === num ? 'primary' : 'default'"
+     @click="selectEpisode(num)"
+   >
+     第{{ num }}集
+   </el-button>
+ </el-button-group>
+</div>
+
+<!-- <div class="controls">
+ <el-slider
+   v-model="episodeCount"
+   :min="1"
+   :max="50"
+   :step="1"
+   show-input
+ />
+</div> -->
+
+</template>
+ 
+
+<script setup>
+  import { ref } from "vue";
+  import { useVideoStore } from "@/api/store";
+
+  // 全局变量
+  const videoUrl = useVideoStore();
   
-  <script>
-  export default {
-    data() {
-      return {
-        episodes: [
-          '第01集', '第02集', '第03集', '第04集', '第05集',
-          '第06集', '第07集', '第08集', '第09集', '第10集',
-          '第11集', '第12集先行'
-        ],
-        currentEpisode: 0
-      };
-    },
-    methods: {
-      selectEpisode(index) {
-        this.currentEpisode = index;
-        // 这里可以添加逻辑，例如切换视频源
-      }
-    }
-  };
-  </script>
+  // 总按钮数（总集数）
+  const episodeCount = ref(24);
+  // 当前按钮位置（当前集数）
+  const selectedEpisode = ref(1)
+
+
+  // 点击调用，修改视频播放地址为按钮对应地址
+  const selectEpisode = (num) => {
+    selectedEpisode.value = num;
+    videoUrl.setCurrentVideoUrl("/resource/video/"+ num +".mp4");
+    console.log("/resource/video/12"+ num +".mp4");
+  }
+
+</script>
+
+<style scoped>
   
-  <style scoped>
-  .sidebar {
+  .el-button{
+    width: 50px;
+    margin-top: 5px;
+    margin-right: 5px;
+  }
+
+  .anime-selector {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
     padding: 10px;
-    background-color: #111;
   }
-  
-  .episode-button {
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
+
+  .controls {
+    margin-top: 15px;
+    width: 300px;
   }
-  
-  .episode-button.active {
-    background-color: #555;
-  }
-  </style>
+</style>
